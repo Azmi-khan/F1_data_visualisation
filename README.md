@@ -1,11 +1,11 @@
-# 🏎️ F1 Race Analyzer
+#  F1 Race Analyzer
 
 An interactive Formula 1 data visualization web app built using **Streamlit** and **FastF1**.  
 This project lets users analyze real F1 session data, compare driver performances, visualize telemetry, and explore race insights.
 
 ---
 
-## 📊 Features
+##  Features
 
 - Fetches live session data using the **FastF1** API.
 - Displays **Lap Time Distribution** (Box Plot).
@@ -16,8 +16,33 @@ This project lets users analyze real F1 session data, compare driver performance
 - Caching enabled for faster reloading.
 
 ---
+##  Sample Visualizations
 
-## 🗂️ Project Structure
+Below are a few examples of the interactive visuals and telemetry outputs from the **F1 Race Analyzer** app.
+
+---
+
+###  App Interface 
+This view shows the sample interface of the app.
+
+![f1_1.png](pythonProject/images/f1_1.png)
+
+---
+
+###  App Interface — Session Progression
+This visualization shows how each driver’s lap times evolve across the session.
+
+![f1_2.png](pythonProject/images/f1_2.png)
+
+---
+
+###  Telemetry Analysis
+Compares driver telemetry traces — such as speed or throttle — over distance on their fastest laps.
+![HAM_fastest_lap_track_map.png](pythonProject/images/HAM_fastest_lap_track_map.png)
+
+
+
+##  Project Structure
 
 ```
 .
@@ -29,7 +54,7 @@ This project lets users analyze real F1 session data, compare driver performance
 
 ---
 
-## ⚙️ Installation
+##  Installation
 
 1. **Clone the repository**
 
@@ -69,20 +94,20 @@ This project lets users analyze real F1 session data, compare driver performance
    - Select a **Session Type** (R, Q, FP1, S)
    - Click **"Load F1 Data"**
    - Explore the analysis tabs:  
-     - 📦 *Lap Time Distribution*  
-     - 📈 *Session Progression*  
-     - ⚙️ *Telemetry Comparison*
+     -  *Lap Time Distribution*  
+     -  *Session Progression*  
+     - ⚙ *Telemetry Comparison*
 
 ---
 
-## 📁 Data Caching
+##  Data Caching
 
 FastF1 automatically caches session data inside the `cache1/` folder to speed up future loads.  
 You can delete this folder anytime to refresh the cache.
 
 ---
 
-## 🧠 Notes
+##  Notes
 
 - Ensure your internet connection is stable — FastF1 downloads live session data.  
 - Not all sessions may have telemetry data (especially older races).  
@@ -90,7 +115,7 @@ You can delete this folder anytime to refresh the cache.
 
 ---
 
-## 🧩 Dependencies
+##  Dependencies
 
 - Python 3.8+  
 - Streamlit  
@@ -101,7 +126,7 @@ You can delete this folder anytime to refresh the cache.
 
 ---
 
-## 📜 License
+##  License
 
 MIT License © 2025 [Azmi Khan]
 
@@ -109,11 +134,10 @@ Feel free to fork, modify, and contribute!
 
 ---
 
-## 📬 Contact
+##  Contact
 
 For any issues or suggestions:  
 **GitHub:** [Azmi-khan](https://github.com/Azmi-khan)  
-**Email:** *your-email@example.com*
 
 ---
 
