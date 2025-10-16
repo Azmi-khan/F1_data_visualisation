@@ -60,10 +60,10 @@ if st.sidebar.button("Load F1 Data"):
 
                 st.session_state.session = session
                 st.session_state.laps_session = laps_session
-                st.success(f"✅ {session.event['EventName']} {year} loaded successfully!")
+                st.success(f"{session.event['EventName']} {year} loaded successfully!")
 
         except Exception as e:
-            st.error(f"⚠️ Error loading session: {e}")
+            st.error(f" Error loading session: {e}")
             st.session_state.session = None
             st.session_state.laps_session = pd.DataFrame()
 
@@ -92,23 +92,28 @@ if not st.session_state.laps_session.empty:
         with tab1:
             st.subheader("Lap Time Consistency and Distribution")
 
+            laps_for_plot = filtered_laps.copy()
+            laps_for_plot['LapTimeString'] = laps_for_plot['LapTime'].apply(
+                lambda x: f"{int(x.total_seconds() // 60)}:{x.total_seconds() % 60:06.3f}"
+            )
+
             fig_box = px.box(
-                filtered_laps,
+                laps_for_plot, 
                 x="Driver",
                 y="LapTimeSeconds",
                 color="Compound",
                 title=f"Lap Time Distribution by Compound – {race} {year}",
                 points="all",
-                hover_data=["LapNumber", "Time"]
+                # Use the new string column for the hover tooltip
+                hover_data=["LapNumber", "LapTimeString", "Compound"]
             )
             fig_box.update_layout(yaxis_title="Lap Time (Seconds)")
             st.plotly_chart(fig_box, use_container_width=True)
-            st.caption("Lower boxes indicate faster and more consistent performance. The color shows which tyre compound was used.")
+            st.caption(
+                "Lower boxes indicate faster and more consistent performance. The color shows which tyre compound was used.")
 
         with tab2:
             st.subheader("Session Progression (Lap Time over Distance)")
-
-
 
             fig_line = px.line(
                 filtered_laps,
@@ -181,5 +186,7 @@ if not st.session_state.laps_session.empty:
                         # This catch is now highly specific to telemetry access failure
                         st.warning(f"Could not plot telemetry for these drivers. Data might be missing or corrupted. Error: {e}")
                         st.info("Try selecting a different race/session, or a major team/driver (e.g., VER vs. HAM).")
+
+
 
 
