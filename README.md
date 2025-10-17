@@ -79,7 +79,7 @@ Compares driver telemetry traces — such as speed or throttle — over distance
 
 ---
 
-## 🚀 Usage
+##  Usage
 
 1. Run the Streamlit app:
 
@@ -96,7 +96,7 @@ Compares driver telemetry traces — such as speed or throttle — over distance
    - Explore the analysis tabs:  
      -  *Lap Time Distribution*  
      -  *Session Progression*  
-     - ⚙ *Telemetry Comparison*
+     -  *Telemetry Comparison*
 
 ---
 
